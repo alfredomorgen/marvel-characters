@@ -1,0 +1,7 @@
+{
+  "port": 8080,
+  "apiHost": "http://gateway.marvel.com",
+  "publicKey": "",
+  "privateKey": "",
+  "defaultTtlInSeconds": 86400
+}

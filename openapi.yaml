@@ -1,0 +1,49 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: Marvel Characters
+servers:
+  - url: 'http://localhost:8080'
+paths:
+  /characters:
+    get:
+      summary: 'Returns list of all Marvel character id'
+      responses:
+        '200':
+          description: 'Returns list of all Marvel character id'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: integer
+        '500':
+          description: 'Internal server error'
+  /characters/{characterId}:
+    get:
+      summary: 'Returns detail of a Marvel character'
+      parameters:
+        - name: characterId
+          in: path
+          description: id of a Marvel character
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 'Returns detail of a Marvel character'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  name:
+                    type: string
+                  description:
+                    type: string
+        '404':
+          description: 'Marvel character with the id is not found'
+        '500':
+          description: 'Internal server error'
